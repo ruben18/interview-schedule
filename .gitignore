@@ -1,0 +1,23 @@
+**/node_modules
+**/vendor
+
+api/vendor/
+api/node_modules/
+api/npm-debug.log
+api/yarn-error.log
+
+# Laravel 4 specific
+api/api/bootstrap/compiled.php
+api/app/storage/
+
+# Laravel 5 & Lumen specific
+api/public/storage
+api/public/hot
+
+
+api/storage/*.key
+api/.env
+api/Homestead.yaml
+api/Homestead.json
+api/.vagrant
+api/.phpunit.result.cache
