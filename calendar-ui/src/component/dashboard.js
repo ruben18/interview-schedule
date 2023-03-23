@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -17,12 +17,12 @@ import AvailabilityList from './availabilityList'
 import { AvailabilityForm } from './availabilityDetails';
 import InterviewList from './interviewList';
 import { InterviewDetails } from './interviewDetails';
-import { logout } from '../stores/userSlice'
 import { useNavigate } from "react-router-dom";
 
 class Dashboard extends React.Component {
     constructor(props,navigation) {
         super(props,navigation);
+        console.log(navigation)
         this.state = {
             localizer: momentLocalizer(moment), show: false,
             selectedDate: "", startTime: null, endTime: null, editMode: false, availabilityId: "",
@@ -30,7 +30,6 @@ class Dashboard extends React.Component {
             isLoading: false
         }
     }
-
 
     handleClose = () => this.setState({ show: false });
 
@@ -88,10 +87,10 @@ class Dashboard extends React.Component {
     }
 
     componentDidMount() {
-        console.log("entrei");
+        console.log(this.props.navigation)
         if (this.props.token == "") {
             //dispatch(logout());
-            navigation.navigate('/');
+            //navigation.navigate('/');
         } else {
             this.loadAvailabilities();
         }
